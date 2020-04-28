@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head>
+	<meta charset="UTF-8" />
+
+	
+</head>
+<body>
+	
+			
+	<section class="layout-content" layout:fragment="corpo">
+	
+	
+		<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 style="text-align: center" class="display-4">Ingresso Show</h1>
+    <p style="text-align: center" class="lead">Conheça os shows mais esperados do ano !!</p>
+  </div>
+</div>
+
+	<div class="row container fluid justify-content-center mx-auto">
+		<div th:each="e : ${eventos}" style="margin: auto" class="card col-lg-5 mb-5">
+					<div class="card-body">
+						<h4 th:text="${e.nome}" class="card-title">John Doe</h4>
+						<p th:text="${e.descricao}" class="card-text">Some example text.</p>
+						<div class="row">
+						<p class="card-text">&nbsp;&nbsp;&nbsp;Ingressos Disponiveis:&nbsp; </p>
+						<p th:text="${e.ingressos}" class="card-text">Some example text.</p>
+						</div>
+						
+						<a th:href="@{/eventos/detalhes/{idevento} (idevento=${e.idevento}) }" 
+						   class="btn btn-primary">Detalhes</a>
+					</div>
+		</div>
+		</div>
+
+	</section>		
+	
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <a class="navbar-brand" href="/">Ingressos Show</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/" data-toggle="collapse" data-target=".navbar-collapse.show">Início</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+    </form>
+  </div>
+</nav>
+<div id="top"></div>
+
+	<div style="margin-top:50px" class="container-fluid">	
+		<h1 style="text-align: center; margin-top: 90px;">Cadastro de Clientes</h1>
+	<section style="max-width: 420px; margin: 0 auto; display: flex; height: 600px; justify-content: center; align-items: center">
+		
+		<form  action="salvarusuario" method="post">
+			<div class="row">
+				<div class="form-group col-xs-4 col-sm-5 col-md-5  col-lg-5">
+					<label>Nome</label>
+					<input name="nome" type="text" class="form-control"
+						placeholder="Nome">
+				</div>
+				<div class="form-group col-xs-6 col-sm-7 col-md-7 col-lg-7">
+					<label>Sobrenome</label> 
+					<input name="sobrenome" type="text" class="form-control"
+						placeholder="Sobrenome">
+				</div>
+			</div>
+			
+			<div class="row">
+			<div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<label for="dt_nasc" class="active">Data de Nascimento:</label><br/>
+    		<input id="dt_nasc" 
+    			   name="dt_nasc" 
+    			   class="form-control" type="date"
+    			   required min="1938-01-01" max="2001-12-31"/>
+			</div>
+			
+			
+				<div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				    <label for="telefone">Telefone <span class="required">*</span></label>
+				    <input name="telefone" type="text"
+				    class="form-control" id="telefone" 
+				    placeholder="(99) 9999-9999" 
+				    pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})" title="Número de telefone precisa ser no formato (99) 9999-9999" required="required" />
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="form-group col-xs-12 col-sm-7 col-md-7 col-lg-7">
+					<label for="email">Email address</label>
+					<input name="email" type="email" class="form-control" id="email"
+						placeholder="Enter email">
+				</div>
+				<div class="form-group col-xs-12 col-sm-5 col-md-5 col-lg-5">
+					<label for="senha">Senha</label> 
+					<input name="senha" type="password"
+						class="form-control" id="senha" placeholder="Senha">
+						
+				</div>
+			</div>
+			<input type="submit" value="Registrar" class="btn btn-success mb-3 mt-5">
+		</form>
+	</section>
+
+	<!--
+		<a class="btn btn-success" href="/listausuarios">Lista de Usuarios</a>
+		<table>
+			<tr th:each="usuario : ${usuarios}">
+				<td th:text="${usuario.idcliente}"></td>
+				<td th:text="${usuario.nome}"></td>
+				<td th:text="${usuario.sobrenome}"></td>
+				<td th:text="${usuario.telefone}"></td>
+				<td th:text="${usuario.dt_nasc}"></td>
+				<td th:text="${usuario.email}"></td>
+			</tr>
+		</table>
+		
+	-->
+	</div>
+<script src="/webjars/jquery/jquery.min.js"></script>
+<script src="/webjars/jquery-mask-plugin/dis/query.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+$(function() {
+	$('[data-toggle="popover"]').popover();
+});
+
+
+</script>
+</body>
+</html>

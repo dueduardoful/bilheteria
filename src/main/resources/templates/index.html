@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Index</title>
+
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css">
+</head>
+<body>
+<header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <a class="navbar-brand" href="/">Ingresso Show</a>
+  <button class="navbar-toggler" type="button" data-toggle="popover" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/" data-toggle="collapse" data-target=".navbar-collapse.show">Início</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <a class="btn btn-outline-success my-2 my-sm-0" href="/cadastrousuario">Cadastre-se (PF)</a>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cadastre-se (PJ)</button>  
+      <a class="btn btn-outline-success my-2 my-sm-0" href="/login">Login</a>
+    </form>
+  </div>
+</nav>
+</header>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Ingressos Show</h1>
+    <p class="lead">Conheça os shows mais esperados do ano !!</p>
+  </div>
+</div>
+
+
+<div style="margin-top: 100px" class="container-fluid">
+
+	<div style="margin: auto" class="row container fluid">
+			<div class="card col-xs-12" style="width: 350px">
+				<div class="card-body">
+					<h4 class="card-title">John Doe</h4>
+					<p class="card-text">Some example text.</p>
+					<a href="#" class="btn btn-primary">Saiba Mais</a>
+				</div>
+			</div>
+			
+			<div class="card col-xs-12" style="width: 350px; margin-left: 30px;">
+			<!-- 	<img class="card-img-top" src="img_avatar1.png" alt="Card image">    -->
+				<div class="card-body">
+					<h4 class="card-title">John Doe</h4>
+					<p class="card-text">Some example text.</p>
+					<a href="#" class="btn btn-primary">Saiba Mais</a>
+				</div>
+			</div>
+			
+			<div class="card col-xs-12" style="width: 350px; margin-left: 30px;">
+			<!-- 	<img class="card-img-top" src="img_avatar1.png" alt="Card image">    -->
+				<div class="card-body">
+					<h4 class="card-title">John Doe</h4>
+					<p class="card-text">Some example text.</p>
+					<a href="#" class="btn btn-primary">Saiba Mais</a>
+				</div>
+			</div>
+		</div>
+		
+		<div style="margin: auto; margin-top: 30px; margin-bottom: 50px" class="row container fluid">
+			<div class="card col-xs-12" style="width: 350px">
+				<div class="card-body">
+					<h4 class="card-title">John Doe</h4>
+					<p class="card-text">Some example text.</p>
+					<a href="#" class="btn btn-primary">Saiba Mais</a>
+				</div>
+			</div>
+			
+			<div class="card col-xs-12" style="width: 350px; margin-left: 30px;">
+			<!-- 	<img class="card-img-top" src="img_avatar1.png" alt="Card image">    -->
+				<div class="card-body">
+					<h4 class="card-title">John Doe</h4>
+					<p class="card-text">Some example text.</p>
+					<a href="#" class="btn btn-primary">Saiba Mais</a>
+				</div>
+			</div>
+			
+			<div class="card col-xs-12" style="width: 350px; margin-left: 30px;">
+			<!-- 	<img class="card-img-top" src="img_avatar1.png" alt="Card image">    -->
+				<div class="card-body">
+					<h4 class="card-title">John Doe</h4>
+					<p class="card-text">Some example text.</p>
+					<a href="#" class="btn btn-primary">Saiba Mais</a>
+				</div>
+			</div>
+		</div>
+</div>
+
+
+<script src="/webjars/jquery/jquery.min.js"></script>
+<script src="/webjars/jquery-mask-plugin/dis/query.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+$(function() {
+	$('[data-toggle="popover"]').popover();
+});
+
+
+</script>
+</html>

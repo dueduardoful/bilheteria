@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<link rel="icon" href="/image/favicon.png" />
+
+	<!-- Bootstrap core CSS -->
+	<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css" rel="stylesheet" />
+	
+	<!-- Custom styles for this template -->
+	<link href="/css/style.css" rel="stylesheet" />
+</head>
+<body>
+
+	<header th:replace="fragments/header :: cabecalho">
+		<div>header</div>	
+	</header>
+
+	<div class="layout-main">
+		<aside>
+			<nav th:replace="fragments/sidebar :: nav-sidebar">
+				<span>menu</span>
+			</nav>
+		</aside>
+		
+		<h3 style="margin-left: 420px; margin-right: -230px; ;margin-top: 50px;">Detalhes do Evento</h3>
+		
+		<section style="margin-bottom: 170px;" class="d-flex align-items-center" layout:fragment="corpo">
+				
+		<div th:each="e : ${eventos}">
+
+				<div class="row">
+					<h4>Evento</h4>
+				</div>
+				<div class="row">
+					<p th:text="${e.nome}">Nome</p>
+				</div>
+				
+				<div class="row">
+					<h4>Descrição</h4>
+				</div>
+				<div class="row">
+					<p th:text="${e.descricao}">Descricao</p>
+				</div>
+				
+				<div class="row">
+					<h4>Data</h4>
+				</div>
+				
+				<div class="row">
+					<p th:text="${e.dt_inicio}">Descricao</p>
+					&nbsp;&nbsp;
+					<p th:text="${e.dt_fim}">Descricao</p>
+				</div>
+				
+				<div class="row">
+					<h4>Ingressos Disponíveis</h4>
+				</div>
+				
+				<div class="row">
+					<p th:text="${e.ingressos}">Ingressos</p>
+				</div>
+				
+				<div class="row">
+					<h4>Preço</h4>
+				</div>
+				
+				<div class="row">
+					<p th:text="${e.preco}">Preco</p>
+				</div>
+				
+			
+			<div>
+			<a th:href="@{/compras/compras/{idevento} (idevento=${e.idevento}) }" style="margin-left: -15px;" type="button" class="btn btn-success">Comprar</a>
+			</div>
+			</div>
+			<a href="/" style="margin-left: 400px; margin-top: 700px;" type="button" class="btn btn-warning">Voltar</a>
+		</section>
+	</div>
+	
+	<footer th:replace="fragments/footer :: rodape">
+		<div>footer</div>
+	</footer>
+
+
+
+
+
+
+<script src="/webjars/jquery/jquery.min.js"></script>
+	<script src="/webjars/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	    
+		var url = '';
+		
+		$('button[id*="btn_"]').click(function(){
+			url = "http://localhost:8080/" + $(this).attr('id').split("_")[1];
+			
+		});
+		
+		$('#ok_confirm').click(function(){
+			document.location.href = url;
+		});
+	
+	
+		$(function() {
+			$('[data-toggle="popover"]').popover();
+		});
+		
+		$(document).ready(function(){
+		    $(".navbar-toggle").click(function(){
+		        $(".sidebar").toggleClass("sidebar-open");
+		    })
+		});
+
+	</script>
+</body>
+</html>
