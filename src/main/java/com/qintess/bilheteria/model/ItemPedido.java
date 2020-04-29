@@ -71,13 +71,20 @@ public class ItemPedido {
 	}
 
 	public Double getSub_total() {
-		Evento evento = new Evento();
-		return sub_total = quantidade*evento.getPreco();
+		return sub_total;
 	}
 
 	public void setSub_total(Double sub_total) {
 		this.sub_total = sub_total;
 	}
+
+	@Override
+	public String toString() {
+		return "ItemPedido [id_itemPedido=" + id_itemPedido + ", ingresso=" + ingresso + ", pedido=" + pedido
+				+ ", quantidade=" + quantidade + ", sub_total=" + sub_total + "]";
+	}
+	
+	
 	
 	
 	

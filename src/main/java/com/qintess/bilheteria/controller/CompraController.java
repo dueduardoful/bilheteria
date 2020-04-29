@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.qintess.bilheteria.model.Evento;
 import com.qintess.bilheteria.model.Ingresso;
@@ -37,7 +36,7 @@ public class CompraController {
 	}
 	@RequestMapping("/finalizar/{idevento}")
 	public String finalizar(@PathVariable("idevento") Long idevento, @RequestParam(value="quantidade")int quantidade, 
-			@RequestParam(value="usuario")Long idusuario, 
+			// @RequestParam(value="usuario")Long idusuario, 
 			Evento evento,
 			ModelMap model) {
 			evento = eventoService.buscarPorId(idevento);
@@ -50,15 +49,21 @@ public class CompraController {
 			itempedido.setSub_total(total);
 			int ingressos = evento.getIngressos()- quantidade;
 			evento.setIngressos(ingressos);
+		//	Usuario u = usuario.findById(idusuario).orElse(null);
+			
+			eventoService.salvar(evento);
+			servicePedido.salvar(itempedido);
+			
 			model.addAttribute("evento", evento);
 			model.addAttribute("itempedido", itempedido);
-			Usuario u = usuario.findById(idusuario).orElse(null);
-			
+
 			// criar pedido
 			// criar item pedido
 			// criar ingresso
 			// subtrair a quantidade de ingresso vendido
-		return "redirect:/compras/subtotal";
+			
+		return "/compra/finalizar";
+		
 	}
 	
 	@GetMapping("/final/{idevento}")     
@@ -76,9 +81,7 @@ public class CompraController {
 		int ingressos = evento.getIngressos()- quantidade;
 		evento.setIngressos(ingressos);
 		model.addAttribute("evento", evento);
-		model.addAttribute("itempedido", servicePedido.buscarPorId(idevento));
-		eventoService.salvar(evento);
-		servicePedido.salvar(itempedido);
+		model.addAttribute("itempedido", itempedido);
 		return "/compra/finalizar";
 		}
 	

@@ -41,24 +41,17 @@
 
 
 			 
-				<form th:action="@{/compras/final/{idevento} (idevento=${evento.idevento})}">
+				<form th:action="@{/compras/finalizar/{idevento} (idevento=${evento.idevento})}">
 				
 				<table class="table-striped table-hover table-sm">
 						<tr>
-									
-			
-			<!-- 
-			 	<div th:each="e : ${itempedido}">
-
-				<div class="row">
-					<h4>Subtotal</h4>
-				</div>
-				<div class="row">
-					<p th:text="${e.sub_total}">Nome</p>
-				</div>
-				</div>
-			 -->
-				
+			 	
+			 		
+			 		<h4>Subtotal</h4>
+					<p th:text="${itempedido.sub_total}" >Subtotal</p>
+					
+					<input type="hidden" name="quantidade" th:value="${itempedido.quantidade}"/>
+					
 				
 				<td colspan="2"></td>
 				
@@ -73,12 +66,6 @@
 	<footer th:replace="fragments/footer :: rodape">
 		<div>footer</div>
 	</footer>
-
-
-
-
-
-
 	<script src="/webjars/jquery/jquery.min.js"></script>
 	<script src="/webjars/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
 	<script

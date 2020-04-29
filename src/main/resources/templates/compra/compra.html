@@ -34,8 +34,7 @@
 			style="margin-left: 420px; margin-right: -230px;; margin-top: 50px;">Detalhes
 			do Pedido</h3>
 
-		<section style="margin-bottom: 400px;"
-			class="d-flex align-items-center" layout:fragment="corpo">
+		<section class="d-flex align-items-center" layout:fragment="corpo">
 
 
 			<div th:each="e : ${eventos}">
@@ -45,6 +44,13 @@
 				</div>
 				<div class="row">
 					<p th:text="${e.nome}">Nome</p>
+				</div>
+				
+				<div class="row">
+					<h4>Preço</h4>
+				</div>
+				<div class="row">
+					<p th:text="${e.preco}">Nome</p>
 				</div>
 
 				<div class="row">
@@ -59,11 +65,11 @@
 					th:action="@{/compras/final/{idevento} (idevento=${evento.idevento})}">
 					<div class="row">
 						<label for="numero">Quantidade</label> <input name="quantidade"
-							type="number" class="form-control" id="numero" />
+							type="number" min="1" max="4" class="form-control" id="numero" />
 						<div class="invalid-feedback"></div>
 					</div>
 					<input type="hidden" name="idevento" th:value="${e.idevento}">
-
+				<!--  
 
 					<div class="row mt-3">
 						<label for="numero">Usuario</label> <select id="idusuario"
@@ -74,20 +80,9 @@
 								th:text="${u.nome}">Auxiliar Contábil</option>
 						</select>
 					</div>
-
-				<!--  	<div th:each="i : ${itempedido}">
-						<div class="row">
-							<h4>Subtotal</h4>
-						</div>
-						<div class="row">
-							<p th:text="${i.sub_total}">Nome</p>
-						</div>
-
-					</div>
+					
 					-->
-
-
-
+					
 					<div class="row">
 						<button type="submit" class="btn btn-primary mt-3">Confirmar</button>
 					</div>
