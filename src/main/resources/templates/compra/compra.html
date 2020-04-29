@@ -1,11 +1,145 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-<h1>Hello Word!!</h1>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link rel="icon" href="/image/favicon.png" />
+
+<!-- Bootstrap core CSS -->
+<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css"
+	rel="stylesheet" />
+
+<!-- Custom styles for this template -->
+<link href="/css/style.css" rel="stylesheet" />
 </head>
 <body>
 
+	<header th:replace="fragments/header :: cabecalho">
+		<div>header</div>
+	</header>
+
+	<div class="layout-main">
+		<aside>
+			<nav th:replace="fragments/sidebar :: nav-sidebar">
+				<span>menu</span>
+			</nav>
+		</aside>
+
+		<h3
+			style="margin-left: 420px; margin-right: -230px;; margin-top: 50px;">Detalhes
+			do Pedido</h3>
+
+		<section style="margin-bottom: 400px;"
+			class="d-flex align-items-center" layout:fragment="corpo">
+
+
+			<div th:each="e : ${eventos}">
+
+				<div class="row">
+					<h4>Evento</h4>
+				</div>
+				<div class="row">
+					<p th:text="${e.nome}">Nome</p>
+				</div>
+
+				<div class="row">
+					<h4>Casa de Show</h4>
+
+				</div>
+				<div class="row">
+					<p th:text="${e.casadeshow.nome}">Nome</p>
+				</div>
+
+				<form
+					th:action="@{/compras/final/{idevento} (idevento=${evento.idevento})}">
+					<div class="row">
+						<label for="numero">Quantidade</label> <input name="quantidade"
+							type="number" class="form-control" id="numero" />
+						<div class="invalid-feedback"></div>
+					</div>
+					<input type="hidden" name="idevento" th:value="${e.idevento}">
+
+
+					<div class="row mt-3">
+						<label for="numero">Usuario</label> <select id="idusuario"
+							class="form-control" name="idusuario">
+
+							<option value="">Selecione...</option>
+							<option th:each="u : ${usuarios}" th:value="${u.idcliente}"
+								th:text="${u.nome}">Auxiliar Contábil</option>
+						</select>
+					</div>
+
+				<!--  	<div th:each="i : ${itempedido}">
+						<div class="row">
+							<h4>Subtotal</h4>
+						</div>
+						<div class="row">
+							<p th:text="${i.sub_total}">Nome</p>
+						</div>
+
+					</div>
+					-->
+
+
+
+					<div class="row">
+						<button type="submit" class="btn btn-primary mt-3">Confirmar</button>
+					</div>
+				</form>
+
+
+
+
+
+
+			</div>
+
+
+
+		</section>
+	</div>
+
+	<footer th:replace="fragments/footer :: rodape">
+		<div>footer</div>
+	</footer>
+
+
+
+
+
+
+	<script src="/webjars/jquery/jquery.min.js"></script>
+	<script src="/webjars/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		var url = '';
+
+		$('button[id*="btn_"]').click(function() {
+			url = "http://localhost:8080/" + $(this).attr('id').split("_")[1];
+
+		});
+
+		$('#ok_confirm').click(function() {
+			document.location.href = url;
+		});
+
+		$(function() {
+			$('[data-toggle="popover"]').popover();
+		});
+
+		$(document).ready(function() {
+			$(".navbar-toggle").click(function() {
+				$(".sidebar").toggleClass("sidebar-open");
+			})
+		});
+	</script>
 </body>
 </html>

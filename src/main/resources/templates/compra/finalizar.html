@@ -31,77 +31,42 @@
 		</aside>
 
 		<h3
-			style="margin-left: 420px; margin-right: -230px;; margin-top: 50px;">Detalhes
-			do Pedido</h3>
+			style="margin-left: 420px; margin-right: -230px;; margin-top: 50px;">Finalizar
+			Pedido</h3>
 
 		<section style="margin-bottom: 400px;"
 			class="d-flex align-items-center" layout:fragment="corpo">
 
+			<div class="table-responsive">
 
-			<div th:each="e : ${eventos}">
+
+			 
+				<form th:action="@{/compras/final/{idevento} (idevento=${evento.idevento})}">
+				
+				<table class="table-striped table-hover table-sm">
+						<tr>
+									
+			
+			<!-- 
+			 	<div th:each="e : ${itempedido}">
 
 				<div class="row">
-					<h4>Evento</h4>
+					<h4>Subtotal</h4>
 				</div>
 				<div class="row">
-					<p th:text="${e.nome}">Nome</p>
+					<p th:text="${e.sub_total}">Nome</p>
 				</div>
-
-				<div class="row">
-					<h4>Casa de Show</h4>
-
 				</div>
-				<div class="row">
-					<p th:text="${e.casadeshow.nome}">Nome</p>
-				</div>
-
-				<form
-					th:action="@{/compras/final/{idevento} (idevento=${evento.idevento})}">
-					<div class="row">
-						<label for="numero">Quantidade</label> <input name="quantidade"
-							type="number" class="form-control" id="numero" />
-						<div class="invalid-feedback"></div>
-					</div>
-					<input type="hidden" name="idevento" th:value="${e.idevento}">
-
-
-					<div class="row mt-3">
-						<label for="numero">Usuario</label> <select id="idusuario"
-							class="form-control" name="idusuario">
-
-							<option value="">Selecione...</option>
-							<option th:each="u : ${usuarios}" th:value="${u.idcliente}"
-								th:text="${u.nome}">Auxiliar Contábil</option>
-						</select>
-					</div>
-
-				<!--  	<div th:each="i : ${itempedido}">
-						<div class="row">
-							<h4>Subtotal</h4>
-						</div>
-						<div class="row">
-							<p th:text="${i.sub_total}">Nome</p>
-						</div>
-
-					</div>
-					-->
-
-
-
-					<div class="row">
-						<button type="submit" class="btn btn-primary mt-3">Confirmar</button>
-					</div>
+			 -->
+				
+				
+				<td colspan="2"></td>
+				
+				</table>
+				<button type="submit" class="btn btn-primary btn-primary">Finalizar Pedido</button>
 				</form>
 
-
-
-
-
-
 			</div>
-
-
-
 		</section>
 	</div>
 

@@ -1,5 +1,6 @@
 package com.qintess.bilheteria.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +15,7 @@ public class ItemPedido {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id_itemPedido;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_ingresso")
 	private Ingresso ingresso;
 	
