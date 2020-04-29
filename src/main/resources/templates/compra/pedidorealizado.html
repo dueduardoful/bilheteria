@@ -31,34 +31,15 @@
 		</aside>
 
 		<h3
-			style="margin-left: 420px; margin-right: -230px;; margin-top: 50px;">Finalizar
-			Pedido</h3>
+			style="margin-left: 420px; margin-right: -230px;; margin-top: 50px;">Pedido Realizado com Sucesso!!</h3>
 
 		<section style="margin-bottom: 400px;"
 			class="d-flex align-items-center" layout:fragment="corpo">
 
 			<div class="table-responsive">
-
-
-			 
-				<form th:action="@{/compras/finalizar/{idevento} (idevento=${evento.idevento})}">
-				
-				<table class="table-striped table-hover table-sm">
-						<tr>
-			 	
-			 		
-			 		<h4 style="margin-top: 150px; margin-left: 25px">Subtotal</h4>
-					<p style="margin-left: 25px" th:text="${itempedido.sub_total}" >Subtotal</p>
-					
-					<input type="hidden" name="quantidade" th:value="${itempedido.quantidade}"/>
-					
-				
-				<td colspan="2"></td>
-				
-				</table>
-				<button style="margin-left: 25px" type="submit" class="btn btn-primary btn-primary">Finalizar Pedido</button>
-				</form>
-
+			 <div>
+				<a style="margin-right: 100px;" href="/" type="button" class="btn btn-lg btn-primary" disabled>Home</a>
+				</div>
 			</div>
 		</section>
 	</div>

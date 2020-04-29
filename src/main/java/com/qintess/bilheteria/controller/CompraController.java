@@ -62,7 +62,7 @@ public class CompraController {
 			// criar ingresso
 			// subtrair a quantidade de ingresso vendido
 			
-		return "/compra/finalizar";
+		return "/compra/pedidorealizado";
 		
 	}
 	
